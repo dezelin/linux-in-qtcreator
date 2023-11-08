@@ -39,8 +39,7 @@ def setup_qt_creator_files_projectfile(project_name, list_of_paths):
 
 def setup_qt_creator_config_projectfile(project_name):
 
-    hardcoded_text = ("#define __KERNEL__ \n"
-                      "#include <generated/autoconf.h>\n")
+    hardcoded_text = ("#include <config-host.h>\n")
     file_name = project_name + ".config"
     with open(file_name, 'w') as sources_file:
         sources_file.write(hardcoded_text)
@@ -48,8 +47,7 @@ def setup_qt_creator_config_projectfile(project_name):
 
 def setup_qt_creator_includes_projectfile(project_name):
 
-    hardcoded_text = ("include \n"
-                      "arch/x86/include\n")
+    hardcoded_text = ("../qemu/include \n")
     file_name = project_name + ".includes"
 
     with open(file_name, 'w') as sources_file:
